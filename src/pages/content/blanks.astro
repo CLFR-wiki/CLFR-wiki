@@ -1,5 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { pricing } from '../../data/blankPrices.js';
+
+function formatKey(key: string) {
+  return key
+    .replace(/([A-Z])/g, ' $1')
+    .replace(/^./, (str: string) => str.toUpperCase());
+}
+
+function formatCategory(category: string) {
+  return category
+    .replace(/([A-Z])/g, ' $1')
+    .replace(/^./, (str: string) => str.toUpperCase());
+}
 ---
 
 <Layout title="Blanks">
@@ -16,263 +29,36 @@ import Layout from '../../layouts/Layout.astro';
     <ul class="list-disc pl-5 mb-6">
       <li><strong>In-Game Rewards:</strong> Earn Blanks automatically every 30 minutes while playing.</li>
       <li>
-        <strong>Daily Rewards:</strong> Build a streak by logging in each day. Your daily reward increases incrementally each day (1 on day 1, 2 on day 2, and so on) until it caps at 7 on day 7. As long as your streak remains active, you'll continue to receive 7 Blanks each day.
+        <strong>Daily Rewards:</strong> Build a streak by logging in each day. Your daily reward increases incrementally each day (1 on day 1, 2 on day 2, etc.) until it caps at 7 on day 7. As long as your streak remains active, you'll continue to receive 7 Blanks each day.
       </li>
     </ul>
 
     <section class="mt-12">
       <h2 class="text-xl font-semibold mb-6">Team Pricing</h2>
       
-      <div class="overflow-x-auto mb-8">
-        <h3 class="text-lg font-semibold mb-2">Centum Security Forces</h3>
-        <table class="w-full table-auto border border-gray-700">
-          <thead>
-            <tr class="bg-gray-800 text-gray-100">
-              <th class="px-3 py-1 border border-gray-700 text-sm">Sub-Team</th>
-              <th class="px-3 py-1 border border-gray-700 text-sm">Temp Buy</th>
-              <th class="px-3 py-1 border border-gray-700 text-sm">Perm Buy</th>
-            </tr>
-          </thead>
-          <tbody class="text-gray-300 text-sm">
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Seasoned Security</td>
-              <td class="px-3 py-1 border border-gray-700">4B$</td>
-              <td class="px-3 py-1 border border-gray-700">12B$</td>
-            </tr>
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Special Tactic Unit</td>
-              <td class="px-3 py-1 border border-gray-700">6B$</td>
-              <td class="px-3 py-1 border border-gray-700">14B$</td>
-            </tr>
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Detachment 26</td>
-              <td class="px-3 py-1 border border-gray-700">Requires Gamepass</td>
-              <td class="px-3 py-1 border border-gray-700">Requires Gamepass</td>
-            </tr>
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Security Branch Commander</td>
-              <td class="px-3 py-1 border border-gray-700">16B$</td>
-              <td class="px-3 py-1 border border-gray-700">Requires Gamepass</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    
-      <div class="overflow-x-auto mb-8">
-        <h3 class="text-lg font-semibold mb-2">Biohazard Containment Unit</h3>
-        <table class="w-full table-auto border border-gray-700">
-          <thead>
-            <tr class="bg-gray-800 text-gray-100">
-              <th class="px-3 py-1 border border-gray-700 text-sm">Sub-Team</th>
-              <th class="px-3 py-1 border border-gray-700 text-sm">Temp Buy</th>
-              <th class="px-3 py-1 border border-gray-700 text-sm">Perm Buy</th>
-            </tr>
-          </thead>
-          <tbody class="text-gray-300 text-sm">
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Veteran Handler</td>
-              <td class="px-3 py-1 border border-gray-700">4B$</td>
-              <td class="px-3 py-1 border border-gray-700">12B$</td>
-            </tr>
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Daredevil Handler Squad</td>
-              <td class="px-3 py-1 border border-gray-700">6B$</td>
-              <td class="px-3 py-1 border border-gray-700">14B$</td>
-            </tr>
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Anomalous Containment Unit</td>
-              <td class="px-3 py-1 border border-gray-700">8B$</td>
-              <td class="px-3 py-1 border border-gray-700">16B$</td>
-            </tr>
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Biohazard Control Director</td>
-              <td class="px-3 py-1 border border-gray-700">N/A</td>
-              <td class="px-3 py-1 border border-gray-700">16B$</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    
-      <div class="overflow-x-auto mb-8">
-        <h3 class="text-lg font-semibold mb-2">Facility Response Unit</h3>
-        <table class="w-full table-auto border border-gray-700">
-          <thead>
-            <tr class="bg-gray-800 text-gray-100">
-              <th class="px-3 py-1 border border-gray-700 text-sm">Sub-Team</th>
-              <th class="px-3 py-1 border border-gray-700 text-sm">Temp Buy</th>
-              <th class="px-3 py-1 border border-gray-700 text-sm">Perm Buy</th>
-            </tr>
-          </thead>
-          <tbody class="text-gray-300 text-sm">
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Seasoned Intervention Unit</td>
-              <td class="px-3 py-1 border border-gray-700">4B$</td>
-              <td class="px-3 py-1 border border-gray-700">12B$</td>
-            </tr>
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Rapid Control Squad</td>
-              <td class="px-3 py-1 border border-gray-700">6B$</td>
-              <td class="px-3 py-1 border border-gray-700">14B$</td>
-            </tr>
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Crisis Wired Units</td>
-              <td class="px-3 py-1 border border-gray-700">8B$</td>
-              <td class="px-3 py-1 border border-gray-700">Requires Gamepass</td>
-            </tr>
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Team Oversight</td>
-              <td class="px-3 py-1 border border-gray-700">16B$</td>
-              <td class="px-3 py-1 border border-gray-700">Requires Gamepass</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    
-      <div class="overflow-x-auto mb-8">
-        <h3 class="text-lg font-semibold mb-2">Administrative Committee</h3>
-        <table class="w-full table-auto border border-gray-700">
-          <thead>
-            <tr class="bg-gray-800 text-gray-100">
-              <th class="px-3 py-1 border border-gray-700 text-sm">Sub-Team</th>
-              <th class="px-3 py-1 border border-gray-700 text-sm">Temp Buy</th>
-              <th class="px-3 py-1 border border-gray-700 text-sm">Perm Buy</th>
-            </tr>
-          </thead>
-          <tbody class="text-gray-300 text-sm">
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Department of Human Resources</td>
-              <td class="px-3 py-1 border border-gray-700">4B$</td>
-              <td class="px-3 py-1 border border-gray-700">12B$</td>
-            </tr>
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Chairman</td>
-              <td class="px-3 py-1 border border-gray-700">4B$</td>
-              <td class="px-3 py-1 border border-gray-700">Requires Gamepass</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    
-      <div class="overflow-x-auto mb-8">
-        <h3 class="text-lg font-semibold mb-2">The Osiris Collective</h3>
-        <table class="w-full table-auto border border-gray-700">
-          <thead>
-            <tr class="bg-gray-800 text-gray-100">
-              <th class="px-3 py-1 border border-gray-700 text-sm">Sub-Team</th>
-              <th class="px-3 py-1 border border-gray-700 text-sm">Temp Buy</th>
-              <th class="px-3 py-1 border border-gray-700 text-sm">Perm Buy</th>
-            </tr>
-          </thead>
-          <tbody class="text-gray-300 text-sm">
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Seasoned Osiris Collective</td>
-              <td class="px-3 py-1 border border-gray-700">4B$</td>
-              <td class="px-3 py-1 border border-gray-700">12B$</td>
-            </tr>
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Osiris Strike Team</td>
-              <td class="px-3 py-1 border border-gray-700">6B$</td>
-              <td class="px-3 py-1 border border-gray-700">14B$</td>
-            </tr>
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Osiris Cleric</td>
-              <td class="px-3 py-1 border border-gray-700">Requires Gamepass</td>
-              <td class="px-3 py-1 border border-gray-700">Requires Gamepass</td>
-            </tr>
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Osiris Prophet</td>
-              <td class="px-3 py-1 border border-gray-700">16B$</td>
-              <td class="px-3 py-1 border border-gray-700">Requires Gamepass</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    
-      <div class="overflow-x-auto mb-8">
-        <h3 class="text-lg font-semibold mb-2">Facility Oversight</h3>
-        <table class="w-full table-auto border border-gray-700">
-          <thead>
-            <tr class="bg-gray-800 text-gray-100">
-              <th class="px-3 py-1 border border-gray-700 text-sm">Sub-Team</th>
-              <th class="px-3 py-1 border border-gray-700 text-sm">Temp Buy</th>
-              <th class="px-3 py-1 border border-gray-700 text-sm">Perm Buy</th>
-            </tr>
-          </thead>
-          <tbody class="text-gray-300 text-sm">
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Facility Oversight</td>
-              <td class="px-3 py-1 border border-gray-700">20B$</td>
-              <td class="px-3 py-1 border border-gray-700">Requires Gamepass</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    
-      <div class="overflow-x-auto mb-8">
-        <h3 class="text-lg font-semibold mb-2">Research Subjects</h3>
-        <table class="w-full table-auto border border-gray-700">
-          <thead>
-            <tr class="bg-gray-800 text-gray-100">
-              <th class="px-3 py-1 border border-gray-700 text-sm">Sub-Team</th>
-              <th class="px-3 py-1 border border-gray-700 text-sm">Temp Buy</th>
-              <th class="px-3 py-1 border border-gray-700 text-sm">Perm Buy</th>
-            </tr>
-          </thead>
-          <tbody class="text-gray-300 text-sm">
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Seasoned Subject</td>
-              <td class="px-3 py-1 border border-gray-700">4B$</td>
-              <td class="px-3 py-1 border border-gray-700">12B$</td>
-            </tr>
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">High Risk Subject</td>
-              <td class="px-3 py-1 border border-gray-700">Requires Gamepass</td>
-              <td class="px-3 py-1 border border-gray-700">Requires Gamepass</td>
-            </tr>
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Housing Overwatch</td>
-              <td class="px-3 py-1 border border-gray-700">8B$</td>
-              <td class="px-3 py-1 border border-gray-700">16B$</td>
-            </tr>
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Godfather</td>
-              <td class="px-3 py-1 border border-gray-700">8B$</td>
-              <td class="px-3 py-1 border border-gray-700">16B$</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    
-      <div class="overflow-x-auto mb-8">
-        <h3 class="text-lg font-semibold mb-2">Health & Research</h3>
-        <table class="w-full table-auto border border-gray-700">
-          <thead>
-            <tr class="bg-gray-800 text-gray-100">
-              <th class="px-3 py-1 border border-gray-700 text-sm">Sub-Team</th>
-              <th class="px-3 py-1 border border-gray-700 text-sm">Temp Buy</th>
-              <th class="px-3 py-1 border border-gray-700 text-sm">Perm Buy</th>
-            </tr>
-          </thead>
-          <tbody class="text-gray-300 text-sm">
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Virologist Staff</td>
-              <td class="px-3 py-1 border border-gray-700">4B$</td>
-              <td class="px-3 py-1 border border-gray-700">12B$</td>
-            </tr>
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Experimental Unit</td>
-              <td class="px-3 py-1 border border-gray-700">6B$</td>
-              <td class="px-3 py-1 border border-gray-700">14B$</td>
-            </tr>
-            <tr>
-              <td class="px-3 py-1 border border-gray-700">Health & Research Director</td>
-              <td class="px-3 py-1 border border-gray-700">16B$</td>
-              <td class="px-3 py-1 border border-gray-700">Requires Gamepass</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      {Object.entries(pricing).map(([category, teams]) => (
+        <div class="overflow-x-auto mb-8">
+          <h3 class="text-lg font-semibold mb-2">{formatCategory(category)}</h3>
+          <table class="w-full table-auto border border-gray-700">
+            <thead>
+              <tr class="bg-gray-800 text-gray-100">
+                <th class="px-3 py-1 border border-gray-700 text-sm">Sub-Team</th>
+                <th class="px-3 py-1 border border-gray-700 text-sm">Temp Buy</th>
+                <th class="px-3 py-1 border border-gray-700 text-sm">Perm Buy</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-300 text-sm">
+              {Object.entries(teams).map(([subTeam, values]) => (
+                <tr>
+                  <td class="px-3 py-1 border border-gray-700">{formatKey(subTeam)}</td>
+                  <td class="px-3 py-1 border border-gray-700">{values.tempBuy}</td>
+                  <td class="px-3 py-1 border border-gray-700">{values.permBuy}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
     </section>
-    
   </div>
 </Layout>
