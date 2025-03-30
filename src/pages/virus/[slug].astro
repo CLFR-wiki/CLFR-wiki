@@ -1,0 +1,37 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { viruses } from '../../data/viruses.js';
+
+const { slug } = Astro.params;
+const virus = Object.values(viruses).find((v) => v.slug === slug);
+
+if (!virus) {
+  throw new Error(`Virus with slug "${slug}" not found.`);
+}
+---
+
+<Layout title={virus.scientificName}>
+  <div class="prose">
+    <h1 class="text-5xl font-bold mb-4">{virus.scientificName}</h1>
+    <h2 class="text-2xl italic mb-4">{virus.slangName}</h2>
+    <img src={virus.logo} alt={`${virus.slangName} logo`} class="w-48 h-48 object-contain mb-6" />
+    <p class="mb-4">{virus.description || "No description available."}</p>
+    <h3 class="text-xl font-semibold">Location</h3>
+    <p class="mb-4">{virus.location}</p>
+    <h3 class="text-xl font-semibold">Effects</h3>
+    <ul class="list-disc pl-6 mb-4">
+      {virus.effects.map((effect) => (
+        <li>{effect}</li>
+      ))}
+    </ul>
+    <h3 class="text-xl font-semibold">Weaknesses</h3>
+    <ul class="list-disc pl-6 mb-4">
+      {virus.weaknesses.map((weakness) => (
+        <li>{weakness}</li>
+      ))}
+    </ul>
+    <p class="mb-4">
+      <strong>Curable:</strong> {virus.curable ? "Yes" : "No"}
+    </p>
+  </div>
+</Layout>
