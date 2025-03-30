@@ -1,32 +1,57 @@
-## What Can You Contribute?
+# Wiki Roadmap
 
-Our public repository, **CLFR-wiki**, is dedicated solely to the editable wiki content—such as team pages, articles, and other community-maintained information. This repository **does not** contain the full source code of the project. The proprietary “meat” of the code (layouts, core components, build processes, etc.) is maintained separately and is not open for public contribution.
+Welcome to the CLFR.wiki Roadmap! This section outlines the current status of our content and highlights the areas that need improvement. Your contributions can make a huge difference!
 
-### Editable Content
+---
 
-- **Wiki Pages:**  
-  All content pages (written as `.astro` files) that house team files, guides, articles, and other informational content are open for contribution.
+## Overview
 
-- **Content Templates:**  
-  You are welcome to use our provided templates to add or update pages. These templates serve as a starting point and ensure consistency across the wiki.
+- **Teams:** 0 out of 33 pages completed  
+- **Content:** 2 out of ? pages completed
 
-### What’s Not Open
+*Note: The numbers indicate the number of fully finished pages versus the total planned pages in each category.*
 
-- **Proprietary Code:**  
-  The core application logic, layouts, and components that power the site’s design and functionality remain proprietary. We ask that you do not modify or request changes to these sections.
+---
 
-### Example File Structure
+## Teams
 
-In our public repository, you might see files like:
+Our Teams section is still in its early stages. Here are some key areas where your help is needed:
 
-```
-src/pages/teams/
-  ├── team1.astro
-  ├── team2.astro
-  └── ...
-src/pages/guides/
-  ├── contribute.astro
-  └── ...
-```
+- **Team Profiles:**  
+  Each team has a placeholder page, but we need detailed profiles that include history, roles, responsibilities, and pricing information.
 
-These files represent the content that you’re free to edit or add to. The proprietary parts (e.g., `src/layouts/Layout.astro` and other core components) are kept separate and are not part of the public contribution process.
+- **Sub-Team Breakdowns:**  
+  Many teams require additional pages for sub-teams with in-depth descriptions and data.  
+  *Example: Create full pages for sub-teams like "Special Tactics Unit" or "Veteran Handler" with relevant details.*
+
+- **Consistent Data:**  
+  Ensure that all pages follow a consistent format, especially for pricing tables and team descriptions.
+
+---
+
+## Content
+
+Apart from team pages, we need to expand the overall content of the wiki:
+
+- **Guides & Articles:**  
+  - **Getting Started:** A beginner’s guide to help new players navigate the game.
+  - **Advanced Strategies:** In-depth articles covering game mechanics, team interactions, and more.
+  - **Content Templates:** Our templates need refinement. Help us standardize the format across the wiki.
+
+- **Under Construction Pages:**  
+  Many pages are currently marked as under construction.  
+  *Your contribution can transform these into fully informative articles.*
+
+---
+
+## How to Contribute
+
+If you’re interested in contributing, follow these steps:
+
+1. **Review this Roadmap:** Identify the sections or pages you’re most passionate about.
+2. **Follow the Contribution Guidelines:** Please check our [CONTRIBUTING.md](CONTRIBUTING.md) for detailed instructions on editing or adding new pages.
+3. **Submit a Pull Request:** Fork the repository, create a branch, and make your updates. Then open a pull request for review by our Maintainers.
+
+---
+
+Your help is greatly appreciated and essential for building a comprehensive resource for our community. Thank you for your interest in making CLFR.wiki the best it can be!
