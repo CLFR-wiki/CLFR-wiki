@@ -1,7 +1,8 @@
 # Wiki Roadmap
 
-Welcome to the CLFR.wiki Roadmap! This section outlines the current status of our content and highlights the areas that need improvement. Your contributions can make a huge difference!
+Welcome to the CLFR.wiki Roadmap! This section outlines the current status of our content and highlights the areas that need improvement. Your contributions can make a huge difference! 
 
+> **P.S.** Everything on this wiki is written in Astro. If you’re not yet familiar with Astro but still want to help, you can contribute by reviewing changes, suggesting improvements, or even by copying one of our ready-made templates to create new pages.
 ---
 
 ## Overview
