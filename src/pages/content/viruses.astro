@@ -1,0 +1,23 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { viruses } from '../../data/viruses.js';
+---
+
+<Layout title="Viruses">
+  <div class="prose">
+    <h1 class="text-5xl font-bold mb-8">Viruses</h1>
+    <p class="mb-6">Explore the unique artwork of each virus. Click on a virus to learn more!</p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {Object.values(viruses).map((virus) => (
+        <a href={`/virus/${virus.slug}`} class="bg-gray-800 rounded-lg p-4 flex flex-col items-center hover:shadow-lg transition-shadow">
+          <img src={virus.logo} alt={`${virus.scientificName} logo`} class="w-24 h-24 object-contain mb-4" />
+          <h3 class="text-xl font-semibold">{virus.scientificName}</h3>
+          {virus.description && (
+            <p class="text-sm text-gray-400 text-center mt-2">{virus.description}</p>
+          )}
+        </a>
+      ))}
+    </div>
+  </div>
+</Layout>
