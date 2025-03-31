@@ -58,7 +58,7 @@ export const teamRanks = {
     virologistTeamLead: { rankName: "Virologist Team Lead", xpRequired: 120 },
     virologistSupervisor: { rankName: "Virologist Supervisor", xpRequired: 240 },
     virologistCoordinator: { rankName: "Virologist Coordinator", xpRequired: 480 },
-    chiefVirologist: { rankName: "Chief Virologist", xpRequired: 980 },
+    chiefVirologist: { rankName: "Chief Virologist", xpRequired: 960 },
     virologistDirector: { rankName: "Virologist Director", xpRequired: 1920 },
   },
   experimentalUnit: {
@@ -94,7 +94,7 @@ export const teamRanks = {
     dangerousSubject: { rankName: "Dangerous Subject", xpRequired: 240 },
     highRiskSubjectMember: { rankName: "High Risk Subject", xpRequired: 480 },
     destructiveSubject: { rankName: "Destructive Subject", xpRequired: 960 },
-    uncurableSubject: { rankName: "”Uncurable” Subject", xpRequired: 1960 },
+    uncurableSubject: { rankName: "\"Uncurable\" Subject", xpRequired: 1960 },
   },
   osirisCollective: {
     initiate: { rankName: "Initiate", xpRequired: 0 },
