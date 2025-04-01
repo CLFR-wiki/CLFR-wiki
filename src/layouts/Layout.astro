@@ -1,0 +1,520 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script src="https://kit.fontawesome.com/f07f177396.js" crossorigin="anonymous"></script>
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} - CLFR.wiki</title>
+    
+    <!-- General Meta Tags -->
+    <meta name="description" content="CLFR.wiki is a community-driven resource for [CL] Facility Roleplay. Explore team info, guides, and more." />
+    <meta name="keywords" content="CLFR, facility roleplay, wiki, teams, guides, game, fan wiki" />
+    <link rel="canonical" href="https://clfr.wiki" />
+  
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://clfr.wiki" />
+    <meta property="og:title" content="{title} - CLFR.wiki" />
+    <meta property="og:description" content="CLFR.wiki is a community-driven resource for [CL] Facility Roleplay. Explore team info, guides, and more." />
+    <meta property="og:image" content="https://chunky.ws/cats/BLEHHH.jpg" />
+  
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://clfr.wiki" />
+    <meta name="twitter:title" content="{title} - CLFR.wiki" />
+    <meta name="twitter:description" content="CLFR.wiki is a community-driven resource for [CL] Facility Roleplay. Explore team info, guides, and more." />
+    <meta name="twitter:image" content="https://chunky.ws/cats/BLEHHH.jpg" />
+  </head>
+  <body class="min-h-screen bg-gray-950 text-gray-100">
+    <div class="flex">
+      <!-- Hamburger mmmmmm -->
+      <button
+        id="hamburgerButton"
+        class="lg:hidden fixed top-4 left-4 z-50 p-2 bg-gray-800 rounded-md text-gray-100 hover:bg-gray-700"
+        aria-label="Toggle Menu"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16m-7 6h7"
+          />
+        </svg>
+      </button>
+
+      <!-- Sidebar -->
+      <aside
+        id="sidebar"
+        class="w-[18rem] h-screen fixed bg-gray-900 p-4 overflow-y-auto transform -translate-x-full lg:translate-x-0 transition-transform duration-300"
+      >
+        <nav>
+          <a href="/" class="text-xl font-bold mb-6 block hover:text-blue-400"
+            >CLFR.wiki</a
+          >
+          <div class="space-y-4">
+            <!-- Game Basics -->
+            <div>
+              <h3 class="text-sm font-semibold text-gray-400 uppercase mb-2">
+                Game Basics
+              </h3>
+              <div class="space-y-2 ml-2">
+                <a href="/getting-started" class="block hover:text-blue-400"
+                  >Getting Started</a
+                >
+                <a href="/guide" class="block hover:text-blue-400">Game Guide</a>
+                <a href="/content/gamepasses" class="block hover:text-blue-400"
+                  >Gamepasses</a
+                >
+              </div>
+            </div>
+
+            <!-- Teams -->
+            <div>
+              <h3 class="text-sm font-semibold text-gray-400 uppercase mb-2">
+                Teams
+              </h3>
+              <div class="space-y-2 ml-2">
+                <!-- Health & Research -->
+                <details class="group">
+                  <summary
+                    class="cursor-pointer flex items-center justify-between text-blue-400 hover:text-blue-400"
+                  >
+                    <span>Health & Research</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-4 h-4 transition-transform group-open:rotate-180"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </summary>
+                  <div class="ml-4 mt-2">
+                    <a
+                      href="/teams/hr/medical-staff"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Medical Staff</a
+                    >
+                    <a
+                      href="/teams/hr/virologist-staff"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Virologist Staff</a
+                    >
+                    <a
+                      href="/teams/hr/experimental-unit"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Experimental Unit</a
+                    >
+                    <a
+                      href="/teams/hr/director"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Health & Research Director</a
+                    >
+                  </div>
+                </details>
+
+                <!-- Research Subject -->
+                <details class="group">
+                  <summary
+                    class="cursor-pointer flex items-center justify-between text-blue-400 hover:text-blue-400"
+                  >
+                    <span>Research Subject Volunteers</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-4 h-4 transition-transform group-open:rotate-180"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </summary>
+                  <div class="ml-4 mt-2">
+                    <a
+                      href="/teams/rsv/research-subject"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Research Subject</a
+                    >
+                    <a
+                      href="/teams/rsv/seasoned-subject"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Seasoned Subject</a
+                    >
+                    <a
+                      href="/teams/rsv/high-risk-subject"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >High-Risk Subject</a
+                    >
+                    <a
+                      href="/teams/rsv/housing-overwatch"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Housing Overwatch</a
+                    >
+                    <a
+                      href="/teams/rsv/godfather"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Godfather</a
+                    >
+                  </div>
+                </details>
+
+                <!-- Centum Security -->
+                <details class="group">
+                  <summary
+                    class="cursor-pointer flex items-center justify-between text-blue-400 hover:text-blue-400"
+                  >
+                    <span>Centum Security</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-4 h-4 transition-transform group-open:rotate-180"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </summary>
+                  <div class="ml-4 mt-2">
+                    <a
+                      href="/teams/cs/centum-security"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Centum Security</a
+                    >
+                    <a
+                      href="/teams/cs/seasoned-security"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Seasoned Security</a
+                    >
+                    <a
+                      href="/teams/cs/special-tactics-unit"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Special Tactics Unit</a
+                    >
+                    <a
+                      href="/teams/cs/detachment-26"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Detachment-26</a
+                    >
+                    <a
+                      href="/teams/cs/security-branch-commander"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Security Branch Commander</a
+                    >
+                  </div>
+                </details>
+
+                <!-- Biohazard Containment Unit -->
+                <details class="group">
+                  <summary
+                    class="cursor-pointer flex items-center justify-between text-blue-400 hover:text-blue-400"
+                  >
+                    <span>Biohazard Containment Unit</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-4 h-4 transition-transform group-open:rotate-180"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </summary>
+                  <div class="ml-4 mt-2">
+                    <a
+                      href="/teams/bcu/biohazard-handler"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Biohazard Handler</a
+                    >
+                    <a
+                      href="/teams/bcu/veteran-handler"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Veteran Handler</a
+                    >
+                    <a
+                      href="/teams/bcu/daredevil-handler-squad"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Daredevil Handler Squad</a
+                    >
+                    <a
+                      href="/teams/anomalous-containment-unit"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Anomalous Containment Unit</a
+                    >
+                    <a
+                      href="/teams/bcu/biohazard-control-director"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Biohazard Control Director</a
+                    >
+                  </div>
+                </details>
+
+                <!-- Facility Response Unit -->
+                <details class="group">
+                  <summary
+                    class="cursor-pointer flex items-center justify-between text-blue-400 hover:text-blue-400"
+                  >
+                    <span>Facility Response Unit</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-4 h-4 transition-transform group-open:rotate-180"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </summary>
+                  <div class="ml-4 mt-2">
+                    <a
+                      href="/teams/fru/facility-response-unit"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Facility Response Unit</a
+                    >
+                    <a
+                      href="/teams/fru/seasoned-intervention-team"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Seasoned Intervention Team</a
+                    >
+                    <a
+                      href="/teams/fru/rapid-control-squad"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Rapid Control Squad</a
+                    >
+                    <a
+                      href="/teams/fru/crisis-wired-unit"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Crisis Wired Unit</a
+                    >
+                    <a
+                      href="/teams/fru/team-oversight"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Team Oversight</a
+                    >
+                  </div>
+                </details>
+
+                <!-- Administrative Committee -->
+                <details class="group">
+                  <summary
+                    class="cursor-pointer flex items-center justify-between text-blue-400 hover:text-blue-400"
+                  >
+                    <span>Administrative Committee</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-4 h-4 transition-transform group-open:rotate-180"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </summary>
+                  <div class="ml-4 mt-2">
+                    <a
+                      href="/teams/ac/administrative-committee"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Administrative Committee</a
+                    >
+                    <a
+                      href="/teams/ac/human-resources"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Department Of Human Resources</a
+                    >
+                    <a
+                      href="/teams/ac/chairman"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Chairman</a
+                    >
+                  </div>
+                </details>
+
+                <!-- The Osiris Collective -->
+                <details class="group">
+                  <summary
+                    class="cursor-pointer flex items-center justify-between text-blue-400 hover:text-blue-400"
+                  >
+                    <span>The Osiris Collective</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-4 h-4 transition-transform group-open:rotate-180"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </summary>
+                  <div class="ml-4 mt-2">
+                    <a
+                      href="/teams/toc/the-osiris-collective"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >The Osiris Collective</a
+                    >
+                    <a
+                      href="/teams/toc/seasoned-osiris-collective"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Seasoned Osiris Collective</a
+                    >
+                    <a
+                      href="/teams/toc/osiris-strike-team"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Osiris Strike Team</a
+                    >
+                    <a
+                      href="/teams/toc/osiris-cleric"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Osiris Cleric</a
+                    >
+                    <a
+                      href="/teams/toc/osiris-prophet"
+                      class="block hover:text-blue-400 whitespace-nowrap"
+                      >Osiris Prophet</a
+                    >
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <!-- Game Content -->
+            <div>
+              <h3 class="text-sm font-semibold text-gray-400 uppercase mb-2">
+                Game Content
+              </h3>
+              <div class="space-y-2 ml-2">
+                <a href="/content/blanks" class="block hover:text-blue-400"
+                  >Blanks</a
+                >
+                <!-- <a href="/viruses" class="block hover:text-blue-400">Viruses</a> -->
+                <a href="/content/guns" class="block hover:text-blue-400">Gun Stats</a>
+              </div>
+            </div>
+
+            <!-- Updates -->
+            <div>
+              <h3 class="text-sm font-semibold text-gray-400 uppercase mb-2">
+                Updates
+              </h3>
+              <div class="space-y-2 ml-2">
+                <a href="/updates/roadmap" class="block hover:text-blue-400"
+                  >Roadmap</a
+                >
+                <a href="/updates/history" class="block hover:text-blue-400"
+                  >Update History</a
+                >
+              </div>
+            </div>
+
+            <!-- Other -->
+            <div>
+              <h3 class="text-sm font-semibold text-gray-400 uppercase mb-2">
+                Other
+              </h3>
+              <div class="space-y-2 ml-2">
+                <a href="/credits" class="block hover:text-blue-400"
+                  >Credits</a
+                >
+                <a href="/contribute" class="block hover:text-blue-400"
+                  >Contribute</a
+                >
+              </div>
+            </div>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main content -->
+      <main class="ml-0 lg:ml-[22rem] p-8 w-full max-w-4xl prose">
+        <slot />
+      </main>
+    </div>
+
+    <script>
+      const hamburgerButton = document.getElementById('hamburgerButton');
+      const sidebar = document.getElementById('sidebar');
+
+      if (hamburgerButton) {
+        hamburgerButton.addEventListener('click', () => {
+          if (sidebar) {
+            sidebar.classList.toggle('-translate-x-full');
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  .prose {
+    @apply prose-invert max-w-none;
+  }
+  .prose a {
+    @apply text-blue-400 no-underline hover:underline;
+  }
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    @apply text-gray-100;
+  }
+  .prose code {
+    @apply bg-gray-800 px-1 py-0.5 rounded;
+  }
+  .prose pre {
+    @apply bg-gray-800 !important;
+  }
+  .prose table {
+    @apply w-full;
+  }
+  .prose th {
+    @apply bg-gray-800;
+  }
+  .prose td {
+    @apply border-gray-700;
+  }
+</style>
