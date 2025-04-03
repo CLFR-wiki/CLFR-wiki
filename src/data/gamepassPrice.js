@@ -112,4 +112,11 @@ export const gamepasses = {
         discount: "0",
         isOnSale: false,
       },
+    oldContainmentForcesPack: {
+        description:
+          "Unlock all the combative forces of Centum Laboratories! Rage war against the Bio-Unknown! Or protect those around you and keep order in the facility!<br><br>- Early Unlocks Biohazard Containment Unit/Crisis Intervention Team!<br>- Early Unlocks Season Security Forces/Veteran Handler/Seasoned Operative!<br>- Unlocks Rapid Control Squad/Special Tactics Unit/Daredevil Handler Squad!<br>- Bypass Biohazard Containment Unit/Crisis Intervention Team Limits & Centum Security Limit!",
+        originalPrice: "850",
+        discount: "0",
+        isOnSale: false,
+      },
   };
