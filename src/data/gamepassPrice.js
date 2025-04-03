@@ -119,4 +119,10 @@ export const gamepasses = {
         discount: "0",
         isOnSale: false,
       },
+    bulldogJuggernaut: {
+        description: "Unlock the Bulldog for CIT!",
+        originalPrice: "75",
+        discount: "0",
+        isOnSale: false,
+      },
   };
