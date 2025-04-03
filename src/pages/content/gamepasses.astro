@@ -26,7 +26,7 @@ function calculateDiscountedPrice(original: string, discount: string, newPrice?:
 <Layout title="Gamepasses - [CL] Facility Roleplay Wiki">
   <div class="prose max-w-none">
     <h1>Gamepasses</h1>
-    <p>In [CL] Facility Roleplay, Gamepasses give you access to a range of teams, weapons, cosmetics, and facility clearances.</p>
+    <p>In [CL] Facility Roleplay, Gamepasses give you access to a range of teams, weapons, cosmetics, and facility clearances. Click on a gamepass name for more details.</p>
 
     <h2 class="mt-6 mb-4 text-xl font-semibold">Available Gamepasses</h2>
     <div class="overflow-x-auto">
@@ -56,7 +56,9 @@ function calculateDiscountedPrice(original: string, discount: string, newPrice?:
             return (
               <tr class="border-b border-slate-200 dark:border-slate-700">
                 <td class="px-4 py-2 border border-slate-300 dark:border-slate-700 text-sm align-top">
-                  {formatKey(key)}
+                  <a href={`/gamepasses/${key.toLowerCase()}`} class="text-blue-600 dark:text-blue-400 hover:underline">
+                    {formatKey(key)}
+                  </a>
                 </td>
                 <td class="px-4 py-2 border border-slate-300 dark:border-slate-700 text-sm align-top" set:html={pass.description}>
                 </td>
