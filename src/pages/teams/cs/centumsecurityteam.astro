@@ -1,1 +1,124 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { teamRanks } from '../../../data/teamRanks.js';
 
+const teamInfo = {
+  id: 'centumSecurity',
+  name: "Centum Security Team",
+  description: `
+    The Centum Security Team is the free starting team in the Centum Security Branch. Ranking up within all teams in the game uses Experience Points (XP). However, gaining initial access to other specific teams within this branch, like <a href="./seasoned-security" class="text-blue-400 hover:underline">Seasoned Security</a>, <a href="./special-tactics-unit" class="text-blue-400 hover:underline">Special Tactics Unit</a>, <a href="./detachment-26" class="text-blue-400 hover:underline">Detachment 26</a>, and the <a href="./commander" class="text-blue-400 hover:underline">Security Branch Commander</a> team, may require meeting separate requirements, such as a gamepass or purchase.
+  `,
+  roleDetails: [
+    "This team provides security for the facility.",
+    "Personnel assigned to this team spawn in the Combative Area, directly outside of the Testing Wing.",
+    "Experience Points (XP) determine rank within the Centum Security Team. Higher ranks grant access to different gear (e.g., USP, MP5, MP7) and higher security clearance (e.g., AC-2, AC-3)."
+  ],
+  relations: {
+    allies: [
+      { name: "Health & Research", link: "../../teams/hr/medical-staff" },
+      { name: "Biohazard Containment Unit", link: "../../teams/bcu/biohazard-handler" },
+      { name: "Facility Response Unit", link: "../../teams/fru/facility-response-unit" },
+      { name: "Administrative Committee", link: "../../teams/ac/administrative-comittee" },
+      { name: "Facility Oversight", link: "../../teams/fo/facility-oversight" },
+    ],
+    hostile: [
+      { name: "Osiris Collective", link: "../../teams/toc/the-osiris-collective" },
+    ],
+    neutral: [
+      { name: "Research Subject", link: "../../teams/rsv/research-subject" },
+    ],
+  }
+};
+
+const currentTeamRanksData = teamRanks[teamInfo.id];
+
+if (!currentTeamRanksData) {
+    throw new Error(`Could not find rank data for team ID: ${teamInfo.id}`);
+}
+
+const ranks = Object.values(currentTeamRanksData).sort((a, b) => a.xpRequired - b.xpRequired);
+
+const getRankKey = (rank) => rank.id ?? rank.rankName;
+---
+
+<Layout title={teamInfo.name}>
+  <div class="flex flex-col md:flex-row gap-8 lg:gap-12">
+
+    <div class="w-full md:w-2/3 flex-grow">
+      <div class="prose max-w-none">
+        <h1 class="text-5xl font-bold mb-4">{teamInfo.name}</h1>
+
+        <p class="text-xl mb-8" set:html={teamInfo.description} />
+
+        <h2 class="text-2xl font-semibold">Role Details</h2>
+        {teamInfo.roleDetails.map((paragraph, index) => (
+          <p class="text-lg mb-4" key={index}>{paragraph}</p>
+        ))}
+      </div>
+
+      <section class="mt-12">
+        <h2 class="prose text-2xl font-semibold mb-4">Ranks and Progression</h2>
+        <p class="prose text-lg mb-4">
+          Rank in the {teamInfo.name} increases with acquired Experience Points (XP). Ranks let you use certain gear and get security access, shown in the table below.
+        </p>
+        <div class="overflow-x-auto">
+          <table class="w-full table-auto border border-gray-700">
+            <thead>
+              <tr class="bg-gray-800 text-gray-100">
+                <th class="px-4 py-2 border border-gray-600 text-left text-sm font-semibold">Rank</th>
+                <th class="px-4 py-2 border border-gray-600 text-left text-sm font-semibold">XP Required</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-300 text-sm">
+              {ranks.map(rank => (
+                <tr class="hover:bg-gray-700/50" key={getRankKey(rank)}>
+                  <td class="px-4 py-2 border border-gray-700">{rank.rankName}</td>
+                  <td class="px-4 py-2 border border-gray-700">{rank.xpRequired}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <aside class="w-full md:w-1/3 p-6 bg-gray-800/50 rounded-lg self-start md:mt-0">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-100">Team Relations</h2>
+        <div>
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold mb-2">Allies</h3>
+                <ul class="list-disc pl-5 text-base">
+                    {teamInfo.relations.allies.map(ally =>
+                      <li key={ally.name}>
+                        <a href={ally.link} class="!text-green-400 hover:!text-green-300 hover:underline">{ally.name}</a>
+                      </li>
+                    )}
+                </ul>
+            </div>
+
+            <div class="mb-6">
+                <h3 class="text-xl font-semibold mb-2">Neutral</h3>
+                <ul class="list-disc pl-5 text-base">
+                    {teamInfo.relations.neutral.map(item =>
+                      <li key={item.name}>
+                        <a href={item.link} class="!text-gray-100 hover:!text-gray-300 hover:underline">{item.name}</a>
+                      </li>
+                    )}
+                </ul>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-semibold mb-2">Hostile</h3>
+                <ul class="list-disc pl-5 text-base">
+                    {teamInfo.relations.hostile.map(foe =>
+                      <li key={foe.name}>
+                        <a href={foe.link} class="!text-red-400 hover:!text-red-300 hover:underline">{foe.name}</a>
+                      </li>
+                    )}
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+  </div>
+</Layout>
