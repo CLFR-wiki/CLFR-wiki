@@ -1,3 +1,9 @@
+# Migration Notice
+
+As an overall decision by the maintainers of CLFR.wiki, we have decided to move our focus to using MediaWiki as opposed to Astro. This means that this repository may be slowly migrated to the new wiki, or may not. 
+
+Please note that any actions made on this wiki may be gradual or even sporadic.
+
 # Wiki Roadmap
 
 Welcome to the CLFR.wiki Roadmap! This section outlines the current status of our content and highlights the areas that need improvement. Your contributions can make a huge difference! 
